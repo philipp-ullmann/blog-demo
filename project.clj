@@ -8,6 +8,7 @@
                  ;; Business
 
                  [org.clojure/clojure               "1.6.0"]
+                 [cheshire                          "5.3.1"]
                  [org.apache.commons/commons-daemon "1.0.9"]
                  [com.taoensso/timbre               "3.3.1"]
 
@@ -18,10 +19,11 @@
 
                  ;; Web
 
-                 [ring                              "1.3.1"]
                  [http-kit                          "2.1.19"]
-                 [compojure                         "1.2.0"]
-                 [ring.middleware.logger            "0.5.0"]]
+                 [liberator                         "0.12.2"]
+                 [ring-cors                         "0.1.4"]
+                 [ring.middleware.logger            "0.5.0"]
+                 [compojure                         "1.2.0"]]
 
   :main         blog.core
   :aot          :all
