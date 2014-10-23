@@ -44,16 +44,12 @@
     (reset! server (http/run-server app {:port port :join? false}))
     (log/info "Server started on port:" port)))
 
-(defn- init-db []
-  (db/create-comments-table! db/con)
-  (db/insert-comment<!       db/con "Comment 1" "This is a comment" "http://www.google.at"))
-
 ;; Daemon implementation
 ;; ==========================================================================================================
 
 (defn -init [this ^DaemonContext context]
-  (db/drop-comments-table! db/con)
-  (init-db))
+  (db/drop!)
+  (db/init!))
 
 (defn -destroy [this])
 
@@ -70,6 +66,6 @@
 ;; ==========================================================================================================
 
 (defn -main [& args]
-  (db/drop-comments-table! db/con)
-  (init-db)
+  (db/drop!)
+  (db/init!)
   (start-server))

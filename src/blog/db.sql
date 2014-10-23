@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS comments (
   id      INT(11)      NOT NULL AUTO_INCREMENT,
   title   VARCHAR(255) NOT NULL,
-  content VARCHAR(255) NOT NULL,
+  content TEXT         NOT NULL,
 	video   VARCHAR(255) NULL,
 
   PRIMARY KEY (id)
