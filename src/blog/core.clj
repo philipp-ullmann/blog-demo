@@ -1,6 +1,7 @@
 (ns blog.core
   (require [org.httpkit.server :as http]
            [taoensso.timbre    :as log]
+           [environ.core       :refer [env]]
 
            [ring.middleware [cors   :refer [wrap-cors]]
                             [logger :refer [wrap-with-logger]]]
@@ -44,8 +45,8 @@
 
 (defn- start []
   (let [port 8000]
-    (reset! server (http/run-server app {:port port :join? false}))
-    (log/info "Server started on port:" port)))
+    (reset! server (http/run-server app {:port (Integer. (:port env)) :join? false}))
+    (log/info "Server started on port:" (:port env))))
 
 (defn -init    [this ^DaemonContext context] (init))
 (defn -destroy [this])

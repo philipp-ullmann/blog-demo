@@ -8,6 +8,7 @@
                  ;; Business
 
                  [org.clojure/clojure               "1.6.0"]
+                 [environ                           "1.0.0"]
                  [org.apache.commons/commons-daemon "1.0.9"]
                  [com.taoensso/timbre               "3.3.1"]
                  [faker                             "0.2.2"]
