@@ -1,7 +1,8 @@
 (ns blog.comments
-  (require [compojure.core :refer [defroutes GET]]
-           [liberator.core :refer [defresource]]
-           [blog.db        :as db]))
+  (require [compojure.core           :refer [defroutes GET]]
+           [liberator.core           :refer [defresource]]
+           [clojure.contrib.humanize :refer [truncate]]
+           [blog.db                  :as db]))
 
 (defresource index
   :allowed-methods       [:get]
@@ -10,7 +11,8 @@
 
   :handle-ok             (fn [_]
                            (->> (db/all-comments db/con)
-                                (map #(select-keys % [:id :title :content])))))
+                                (map (comp #(select-keys % [:id :title :content])
+                                           #(assoc % :content (truncate (:content %) 60)))))))
 
 (defresource show
   :allowed-methods       [:get]
