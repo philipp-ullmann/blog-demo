@@ -35,5 +35,5 @@
 
   :main         blog.core
   :aot          :all
-  :jar-name     "blog.jar"
-  :uberjar-name "blog-standalone.jar")
+  :jar-name     "blog-demo.jar"
+  :uberjar-name "blog-demo-standalone.jar")
