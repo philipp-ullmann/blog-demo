@@ -1,5 +1,5 @@
 (ns blog.comments
-  (require [compojure.core :refer [defroutes context GET]]
+  (require [compojure.core :refer [defroutes GET]]
            [liberator.core :refer [defresource]]
            [blog.db        :as db]))
 

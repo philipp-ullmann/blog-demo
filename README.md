@@ -2,6 +2,10 @@
 
 Blog demo server to recruit frontend programmers for the company *create.at*.
 
-Start the web server within:
+**Start server** with:
 
     lein run
+
+Run **tests** with:
+
+    lein midje

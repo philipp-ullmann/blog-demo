@@ -2,8 +2,7 @@
   (require [org.httpkit.server :as http]
            [taoensso.timbre    :as log]
 
-           [ring.middleware [params :refer [wrap-params]]
-                            [cors   :refer [wrap-cors]]
+           [ring.middleware [cors   :refer [wrap-cors]]
                             [logger :refer [wrap-with-logger]]]
 
            [compojure [core  :refer [defroutes]]
@@ -16,7 +15,7 @@
   (:gen-class :implements [org.apache.commons.daemon.Daemon]))
 
 ;; Ring setup
-;; ==========================================================================================================
+;; =====================================================================================================
 
 (defroutes routes
   comments/routes
@@ -28,33 +27,29 @@
       (wrap-cors :access-control-allow-origin  #".*"
                  :access-control-allow-methods [:get :put :post :delete]
                  :access-control-allow-headers ["Origin" "X-Requested-With" "Content-Type" "Accept"])
-      wrap-params
       (wrap-with-logger :info  (fn [x] (log/info x))
                         :debug (fn [x])
                         :error (fn [x] (log/error x))
                         :warn  (fn [x] (log/warn x)))))
 
-;; Server
-;; ==========================================================================================================
+;; Daemon implementation
+;; =====================================================================================================
 
 (defonce server (atom nil))
 
-(defn- start-server []
+(defn- init []
+  (db/drop-comments-table!   db/con)
+  (db/create-comments-table! db/con)
+  (db/seed! 50))
+
+(defn- start []
   (let [port 8000]
     (reset! server (http/run-server app {:port port :join? false}))
     (log/info "Server started on port:" port)))
 
-;; Daemon implementation
-;; ==========================================================================================================
-
-(defn -init [this ^DaemonContext context]
-  (db/drop!)
-  (db/init!))
-
+(defn -init    [this ^DaemonContext context] (init))
 (defn -destroy [this])
-
-(defn -start [this]
-  (start-server))
+(defn -start   [this] (start))
 
 (defn -stop [this]
   (when-not (nil? @server)
@@ -63,9 +58,8 @@
     (log/info "Server stopped")))
 
 ;; Main method
-;; ==========================================================================================================
+;; =====================================================================================================
 
 (defn -main [& args]
-  (db/drop!)
-  (db/init!)
-  (start-server))
+  (init)
+  (start))
