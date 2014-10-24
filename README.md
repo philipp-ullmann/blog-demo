@@ -48,5 +48,5 @@ JSON Response:
 {"id":      1,
  "title":   "Ring",
  "content": "Clojure is a dynamic programming language that targets the Java Virtual Machine",
- "video":   "/create.mp4"}
+ "video":   "/smile.mp4"}
 ```

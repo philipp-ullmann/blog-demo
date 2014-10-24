@@ -17,4 +17,4 @@
   (doseq [[title content] (map list (take amount (lorem/words))
                                     (take amount (lorem/paragraphs)))]
 
-    (insert-comment<! con title content "http://www.google.at")))
+    (insert-comment<! con title content "/smile.mp4")))

@@ -10,7 +10,7 @@
                                         (db/seed! 2)))]
 
 ;; List comments
-;; ===============================================================================================================
+;; ====================================================================================================================
 
 (fact "List all available comments"
   (let [resp (app (request :get "/comments"))]
@@ -21,14 +21,14 @@
                                                       (just {"id" 1 "title" string? "content" string?})])))
 
 ;; Show comment details
-;; ===============================================================================================================
+;; ====================================================================================================================
 
 (fact "Show details of a comment"
   (let [resp (app (request :get "/comments/1"))]
 
     (-> resp :headers (get "Content-Type")) => "application/json;charset=UTF-8"
     (-> resp :status)                       => 200
-    (-> resp :body parse-string)            => (just {"id" 1 "title" string? "content" string? "video" string?})))
+    (-> resp :body parse-string)            => (just {"id" 1 "title" string? "content" string? "video" "/smile.mp4"})))
 
 (fact "Show details of a comment that does not exist"
   (let [resp (app (request :get "/comments/3"))]
