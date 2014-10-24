@@ -41,7 +41,7 @@ JSVC_ARGS="-home $JAVA_HOME \
            -pidfile $PID"
 
 # Any arguments to be passed to the Java Virtual Machine.
-JVM_ARGS="-Xms512m \
+JVM_ARGS="-Xms256m \
           -Xmx1024m"
 
 START_COMMAND="$JSVC $JSVC_ARGS $JVM_ARGS $JAVA_ARGS $CLASS"
