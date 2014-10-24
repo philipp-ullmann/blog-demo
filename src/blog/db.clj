@@ -1,13 +1,14 @@
 (ns blog.db
-  (require [yesql.core  :refer [defqueries]]
-           [faker.lorem :as lorem]))
+  (require [jdbc.pool.c3p0 :as pool]
+           [yesql.core     :refer [defqueries]]
+           [faker.lorem    :as lorem]))
 
-(def con {:classname         "org.h2.Driver"
-          :subprotocol       "h2"
-          :subname           "mem:blog_demo;DB_CLOSE_DELAY=-1"
-          :make-pool?        true
-          :minimum-pool-size 5
-          :maximum-pool-size 20})
+(def con (pool/make-datasource-spec {:classname         "org.h2.Driver"
+                                     :subprotocol       "h2"
+                                     :subname           "mem:blog_demo"
+                                     :initial-pool-size 3
+                                     :min-pool-size     3
+                                     :max-pool-size     10}))
 
 (defqueries "blog/db.sql")
 
