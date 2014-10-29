@@ -28,12 +28,12 @@
                  [ring.middleware.logger         "0.5.0"]
                  [compojure                      "1.2.0"]]
 
-  :profiles      {:dev {:dependencies [[ring-mock "0.1.5"]
-                                       [midje     "1.6.3"]
-                                       [cheshire  "5.3.1"]]}
-                  :production {:env {:production true}}}
+  :profiles         {:dev {:dependencies [[ring-mock "0.1.5"]
+                                          [midje     "1.6.3"]
+                                          [cheshire  "5.3.1"]]}
+                     :production {:env {:production true}}}
 
-  :min-lein-version "2.5.0"
+  :min-lein-version "2.4.0"
   :plugins          [[environ/environ.lein "0.3.1"]]
   :hooks            [environ.leiningen.hooks]
   :main             blog.core
