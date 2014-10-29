@@ -26,7 +26,7 @@
                  [liberator                      "0.12.2"]
                  [ring-cors                      "0.1.4"]
                  [ring.middleware.logger         "0.5.0"]
-                 [compojure                      "1.2.0"]]
+                 [compojure                      "1.2.1"]]
 
   :profiles         {:dev {:dependencies [[ring-mock "0.1.5"]
                                           [midje     "1.6.3"]
