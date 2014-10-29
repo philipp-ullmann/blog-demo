@@ -1,34 +1,8 @@
 # Blog demo
 
-Blog demo server to recruit frontend programmers for the company **create.at**.
+This is a simple blog demo server, which provides an API to fetch comments.
 
-Create and edit application **configuration** file *.lein-env*:
-
-    cp lein-env-example .lein-env
-
-**Start server** with:
-
-    lein run
-
-Run **tests** with:
-
-    lein midje
-
-### Production server
-
-The production server run's on [heroku](http://heroku.com).
-
-Web url:
-
-    https://blog-demo-create.herokuapp.com
-
-Deploy with:
-
-    git push heroku master
-
-View logs with:
-
-    heroku logs --tail
+Definition of task ...
 
 ## API
 
@@ -66,3 +40,33 @@ JSON Response:
  "content": "Clojure is a dynamic programming language that targets the Java Virtual Machine",
  "video":   "/smile.mp4"}
 ```
+
+## Server development
+
+Create and edit application **configuration** file *.lein-env*:
+
+    cp lein-env-example .lein-env
+
+**Start server** with:
+
+    lein run
+
+Run **tests** with:
+
+    lein midje
+
+## Production server
+
+The production server run's on [heroku](http://heroku.com).
+
+Web url:
+
+    https://blog-demo-create.herokuapp.com
+
+Deploy with:
+
+    git push heroku master
+
+View logs with:
+
+    heroku logs --tail
