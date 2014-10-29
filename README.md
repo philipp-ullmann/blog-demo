@@ -14,13 +14,29 @@ Run **tests** with:
 
     lein midje
 
+### Production server
+
+The production server run's on [heroku](http://heroku.com).
+
+Web url:
+
+    https://blog-demo-create.herokuapp.com
+
+Deploy with:
+
+    git push heroku master
+
+View logs with:
+
+    heroku logs --tail
+
 ## API
 
 **List all comments**
 
 Request:
 
-    GET => /comments
+    GET => https://blog-demo-create.herokuapp.com/comments
 
 JSON Response:
 
@@ -40,7 +56,7 @@ JSON Response:
 
 Request:
 
-    GET => /comments/1
+    GET => https://blog-demo-create.herokuapp.com/comments/1
 
 JSON Response:
 
