@@ -37,4 +37,5 @@
   :plugins          [[environ/environ.lein "0.3.1"]]
   :hooks            [environ.leiningen.hooks]
   :main             blog.core
+  :aot              [blog.core]
   :uberjar-name     "blog-demo-standalone.jar")
