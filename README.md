@@ -4,7 +4,7 @@ This is a simple blog demo server, which provides an API to fetch comments.
 
 *Definition of task:*
 
-Please develop a rich javascript client, which lists all available comments. If an user clicks on a comment the full comment description should be visible and the corresponding video should be started. The client should run in all current browser, tablets and mobile phones.
+Develop a rich javascript client with it's main purpose to list all available comments. If an user clicks on a specific comment, the full comment description should unfold and be visible, as well as the corresponding video should start its playback right away. Compatibility is mandatory, as the developed client should operate and work with all current browsers, tablets (phablets) and mobile devices (phones, pods). Submission has to be done via html and js-code. Good luck!
 
 ## API
 
