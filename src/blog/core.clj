@@ -10,10 +10,7 @@
                       [route :as route]]
 
            [blog [comments :as comments]
-                 [db       :as db]])
-
-  (import [org.apache.commons.daemon Daemon DaemonContext])
-  (:gen-class :implements [org.apache.commons.daemon.Daemon]))
+                 [db       :as db]]))
 
 ;; Ring setup
 ;; =====================================================================================================
@@ -33,34 +30,13 @@
                         :error (fn [x] (log/error x))
                         :warn  (fn [x] (log/warn x)))))
 
-;; Daemon implementation
-;; =====================================================================================================
-
-(defonce server (atom nil))
-
-(defn- init []
-  (db/drop-comments-table!   db/con)
-  (db/create-comments-table! db/con)
-  (db/seed! 50))
-
-(defn- start []
-  (let [port 8000]
-    (reset! server (http/run-server app {:port (Integer. (:port env)) :join? false}))
-    (log/info "Server started on port:" (:port env))))
-
-(defn -init    [this ^DaemonContext context] (init))
-(defn -destroy [this])
-(defn -start   [this] (start))
-
-(defn -stop [this]
-  (when-not (nil? @server)
-    (@server :timeout 100)
-    (reset! server nil)
-    (log/info "Server stopped")))
-
 ;; Main method
 ;; =====================================================================================================
 
-(defn -main [& args]
-  (init)
-  (start))
+(defn -main [& [port]]
+  (let [port (Integer. (or port (env :port) 5000))]
+    (db/drop-comments-table!   db/con)
+    (db/create-comments-table! db/con)
+    (db/seed! 50)
+    (http/run-server app {:port port :join? false})
+    (log/info "Server started on port:" port)))
