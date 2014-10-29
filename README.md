@@ -2,7 +2,9 @@
 
 This is a simple blog demo server, which provides an API to fetch comments.
 
-Definition of task ...
+*Definition of task:*
+
+Please develop a rich javascript client, which lists all available comments. If an user clicks on a comment the full comment description should be visible and the corresponding video should be started. The client should run in all current browser, tablets and mobile phones.
 
 ## API
 
