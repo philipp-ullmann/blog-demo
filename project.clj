@@ -33,8 +33,8 @@
                                        [cheshire  "5.3.1"]]}
                   :production {:env {:production true}}}
 
-  :plugins      [[environ/environ.lein "0.3.1"]]
-  :hooks        [environ.leiningen.hooks]
-  :main         blog.core
-  :jar-name     "blog-demo.jar"
-  :uberjar-name "blog-demo-standalone.jar")
+  :min-lein-version "2.0.0"
+  :plugins          [[environ/environ.lein "0.3.1"]]
+  :hooks            [environ.leiningen.hooks]
+  :main             blog.core
+  :uberjar-name     "blog-demo-standalone.jar")
