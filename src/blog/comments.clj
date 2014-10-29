@@ -4,6 +4,10 @@
            [clojure.contrib.humanize :refer [truncate]]
            [blog.db                  :as db]))
 
+;; GET /comments
+;; List all comments order by id descending.
+;; ================================================================================================
+
 (defresource index
   :allowed-methods       [:get]
 
@@ -13,6 +17,10 @@
                            (->> (db/all-comments db/con)
                                 (map (comp #(select-keys % [:id :title :content])
                                            #(assoc % :content (truncate (:content %) 60)))))))
+
+;; GET => /comments/:id
+;; Show details of a comment.
+;; ================================================================================================
 
 (defresource show
   :allowed-methods       [:get]
@@ -24,6 +32,9 @@
                              [c {::c c}]))
 
   :handle-ok             (fn [{c ::c}] c))
+
+;; Routes
+;; ================================================================================================
 
 (defroutes routes
   (GET "/comments"     request index)
