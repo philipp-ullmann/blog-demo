@@ -16,7 +16,7 @@
                  ;; Database
 
                  [clojure.jdbc                   "0.3.1"]
-                 [clojure.jdbc/clojure.jdbc-c3p0 "0.3.1"]
+                 [clojure.jdbc/clojure.jdbc-c3p0 "0.3.0"]
                  [com.h2database/h2              "1.4.182"]
                  [yesql                          "0.4.0"]
 
