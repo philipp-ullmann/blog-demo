@@ -4,7 +4,7 @@ This is a simple blog demo server, which provides an API to fetch comments.
 
 **Definition of task:**
 
-Develop a rich javascript client with it's main purpose to list all available comments. If an user clicks on a specific comment, the full comment description should unfold and be visible, as well as the corresponding video should start its playback right away. Compatibility is mandatory, as the developed client should operate and work with all current browsers, tablets (phablets) and mobile devices (phones, pods). Submission has to be done via html and js-code. Please send the source code with documentation to office@create.at. If you have further questions pleas feel free to contact pu@create.at. Good luck!
+Develop a rich javascript client with it's main purpose to list all available comments. If an user clicks on a specific comment, the full comment description should unfold and be visible, as well as the corresponding video should start its playback right away. Compatibility is mandatory, as the developed client should operate and work with all current browsers, tablets (phablets) and mobile devices (phones, pods). Submission has to be done via html and js-code. Please send the source code with documentation to <office@create.at>. If you have further questions please feel free to contact <pu@create.at>. Good luck!
 
 ## API
 
