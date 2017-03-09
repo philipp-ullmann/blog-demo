@@ -1,4 +1,4 @@
-# Blog demo
+# Blog demo [![Build Status](https://travis-ci.org/philipp-ullmann/blog-demo.svg?branch=master)](https://travis-ci.org/philipp-ullmann/blog-demo) [![Code Climate](https://lima.codeclimate.com/github/philipp-ullmann/blog-demo/badges/gpa.svg)](https://lima.codeclimate.com/github/philipp-ullmann/blog-demo)
 
 This is a simple blog demo server, which provides an API to fetch comments.
 
