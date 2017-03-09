@@ -49,7 +49,7 @@ JSON Response:
 
     docker-compose up -d
 
-Run **tests** with:
+The server run's on port 3000. Run **tests** with:
 
     docker-compose exec web lein test
 
