@@ -1,0 +1,7 @@
+web:
+  build: .
+  command: lein test
+  volumes:
+    - .:/usr/src/app
+  environment:
+    - PORT=8080
